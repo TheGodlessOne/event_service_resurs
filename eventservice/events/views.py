@@ -4,6 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from events.models import Event
 from events.serializers import EventSerializer
+from django.contrib.auth.models import User
+
 
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
@@ -13,3 +15,13 @@ class EventList(generics.ListCreateAPIView):
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
