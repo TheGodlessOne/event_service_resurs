@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
