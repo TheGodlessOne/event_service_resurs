@@ -1,34 +1,19 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from django.contrib.auth.models import User
+from rest_framework import permissions, viewsets
 from events.models import Event
 from events.serializers import EventSerializer, UserSerializer
-from django.contrib.auth.models import User
-from rest_framework import permissions
 from events.permissions import IsOwner
 
 
-class EventList(generics.ListCreateAPIView):
+class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [permissions.IsOwner]
+    permission_classes = [permissions.IsAuthenticated, IsOwner]
     
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
-class EventDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Event.objects.all()
-    serializer_class = EventSerializer
-    permission_classes = [permissions.IsOwner]
-
-
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveAPIView):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
