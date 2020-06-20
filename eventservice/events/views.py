@@ -6,12 +6,13 @@ from events.models import Event
 from events.serializers import EventSerializer, UserSerializer
 from django.contrib.auth.models import User
 from rest_framework import permissions
+from events.permissions import IsOwner
 
 
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsOwner]
     
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -20,7 +21,7 @@ class EventList(generics.ListCreateAPIView):
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsOwner]
 
 
 class UserList(generics.ListAPIView):
