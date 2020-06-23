@@ -10,12 +10,12 @@ export default new Router({
       path: "/",
       alias: "/events",
       name: "events",
-      component: () => import("./components/EventsList")
+      component: () => import("./components/EventList")
     },
     {
       path: "/events/:id",
       name: "event-details",
-      component: () => import("./components/Event")
+      component: () => import("./components/EventDetail")
     },
     {
       path: "/add",
