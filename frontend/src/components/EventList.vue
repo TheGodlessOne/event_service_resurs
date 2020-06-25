@@ -55,6 +55,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import EventDataService from "../services/EventDataService";
 
 export default {

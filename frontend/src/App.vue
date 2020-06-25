@@ -17,9 +17,18 @@
   </div>
 </template>
 
-
 <script>
+/* eslint-disable */
+import AddEvent from './components/AddEvent'
+import EventList from './components/EventList'
+import EventDetail from './components/EventDetail'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'add-event': AddEvent,
+    'event-list': EventList,
+    'event-detail': EventDetail
+  }
 }
 </script>

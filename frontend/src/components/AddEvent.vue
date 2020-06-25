@@ -45,10 +45,11 @@
 </template>
 
 <script>
+/* eslint-disable */
 import EventDataService from "../services/EventDataService";
 
 export default {
-  name: "add-event",
+  name: "create-event",
   data() {
     return {
       event: {

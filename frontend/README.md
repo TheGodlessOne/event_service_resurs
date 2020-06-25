@@ -1,6 +1,6 @@
 # frontend
 
-> frontend for event service
+> Event service for RESURS
 
 ## Build Setup
 
