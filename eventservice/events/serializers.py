@@ -6,7 +6,7 @@ class EventSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Event
-        fields = ['event_title', 'event_description', 'event_date', 'owner']
+        fields = ['id', 'event_title', 'event_description', 'event_date', 'owner']
 
 
 class UserSerializer(serializers.ModelSerializer):
