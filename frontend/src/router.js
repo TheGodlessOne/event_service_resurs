@@ -22,6 +22,16 @@ export default new Router({
       path: "/add",
       name: "add",
       component: () => import("./components/AddEvent")
-    }
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("./components/UserLogin")
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("./components/UserRegister")
+    },
   ]
 });
