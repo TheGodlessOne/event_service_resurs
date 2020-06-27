@@ -3,27 +3,27 @@ import http from "../http-common";
 
 class EventDataService {
   getAll() {
-    return http.get('/events');
+    return http.list('/events');
   }
 
   get(id) {
-    return http.get('/events/${id}');
+    return http.retrieve('/events/${id}');
   }
 
   create(data) {
-    return http.post('/events', data);
+    return http.create('/events', data);
   }
 
   update(id, data) {
-    return http.put('/events/${id}', data);
+    return http.update('/events/${id}', data);
   }
 
   delete(id) {
-    return http.delete('/events/${id}');
+    return http.destroy('/events/${id}');
   }
 
   deleteAll() {
-    return http.delete('/events');
+    return http.destroy('/events');
   }
 
 }
