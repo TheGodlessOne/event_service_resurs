@@ -8,6 +8,9 @@
         <li class="nav-item">
           <a href="/add" class="nav-link">Add</a>
         </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link">Login</a>
+        </li>
       </div>
     </nav>
 
@@ -22,13 +25,17 @@
 import AddEvent from './components/AddEvent'
 import EventList from './components/EventList'
 import EventDetail from './components/EventDetail'
+import UserLogin from './components/UserLogin'
+import UserRegister from './components/UserRegister'
 
 export default {
   name: 'App',
   components: {
     'add-event': AddEvent,
     'event-list': EventList,
-    'event-detail': EventDetail
+    'event-detail': EventDetail,
+    'user-login': UserLogin,
+    'user-register': UserRegister
   }
 }
 </script>
